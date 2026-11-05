@@ -1,0 +1,24 @@
+```
+services:
+
+  frontend:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+
+  database:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: employee_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+```
